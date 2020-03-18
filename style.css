@@ -1,0 +1,240 @@
+html
+{
+    margin:0;
+    padding:0;
+}
+
+body
+{
+    margin:0;
+    padding:0;
+}
+
+h1,h2
+{
+    display: flex;
+}
+
+
+/*HEADER*/
+
+header
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#logo-top
+{
+    margin:10px;
+    max-width: 10vw;
+}
+
+.banniere
+{
+    display: flex;
+    margin-top: 6vh;
+    justify-content: center;
+}
+
+.banniere h1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    font-size: 3em;
+}
+
+header nav
+{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    font-size: 1.7em;
+    height:6vh;
+    color:white;
+    background-color:#FF0E05;
+}
+
+header .menu
+{
+    display: flex;
+    width: 100vw;
+}
+
+header .menu li
+{
+    flex-grow: 1;
+    height: 100%;
+    border-right: 1px solid #bbb;
+}
+
+header .menu li:hover
+{
+    background-color: #bbb;
+}
+
+header.menu li:last-child {
+    border-right: none;
+  }
+
+header .sous-menu
+{
+    flex-direction: column;
+    display: none;
+}
+
+header .sous-menu:hover
+{
+    flex-direction: column;
+    display: block;
+}
+
+header nav ul, header nav li
+{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav a
+{
+    text-decoration: none;
+    color: white;
+}
+
+/*FOOTER*/
+
+footer
+{
+    background-color: rgb(49, 49, 49);
+    display: flex;
+    flex-direction: row;
+    color:white;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: center;
+}
+
+#logo-bottom
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+
+#logo-bottom img
+{
+    max-width: 12vw;
+    max-height: 12vh;
+}
+
+#follow
+{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#contact
+{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#sous-contact
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+#sous-contact div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    margin:10px;
+}
+
+#plan-site
+{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+footer nav ul
+{
+    display:flex;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+}
+
+footer nav li
+{
+    margin:5px;
+}
+
+footer nav ul li
+{
+    display: flex;
+    flex-direction: column;
+}
+
+footer nav a
+{
+    text-decoration: none;
+    color:white;
+}
+.menu a
+{
+    font-size: 1.2em;
+    color:white;
+}
+
+.sous-menu a
+{
+
+    color:grey;
+    font-size: 1em;
+}
+
+
+footer .sous-menu 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo
+{
+    height: 50px;
+}
+
+
+/*MAIN*/
+main
+{
+    height: 60vh;
+}
