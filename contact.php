@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Accueil - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
+<title>Contact - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
  <link rel="stylesheet" href="style.css">
 </head>
 
