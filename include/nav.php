@@ -9,6 +9,7 @@
             </ul>
         </li>
         <li><a href="qui-sommes-nous.php">Qui-sommes-nous ?</a></li>
-        <li><a href="contact.php">Contact</a></li>
+        <li><a href="adherer.php">Adhérer</a></li>
+        <li><a href="liens-utiles.php">Liens utiles</a></li>
     </ul>
 </nav>
