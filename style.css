@@ -40,12 +40,24 @@ h1
     margin:30px;
 }
 
-.panneau
+.panneau-row
 {
     display:flex;
     width: 80vw;
     flex-direction:row ;
     justify-content: space-between;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+.panneau-col
+{
+    display:flex;
+    width: 80vw;
+    min-height:30vh;
+    flex-direction:column ;
+    justify-content: center;
     justify-items: center;
     align-content: center;
     align-items: center;
@@ -72,6 +84,14 @@ h1
     max-width:40vw;
     margin:10px;
     padding:5px;
+}
+
+main form
+{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
 }
 
 /*HEADER*/
@@ -140,7 +160,7 @@ header .menu
     /*width: 100vw;*/
 }
 
-header .panneau div
+header .panneau-row div
 {
     display: flex;
     flex-direction: row;
@@ -155,7 +175,7 @@ header .sous-menu{
     z-index: 1000;
 }
 
-nav > ul li:hover .sous-menu{
+header nav > ul li:hover .sous-menu{
     display: block;
 }
 
@@ -312,18 +332,19 @@ footer nav ul li
     flex-direction: column;
 }
 
-footer nav a
+footer nav a, footer a
 {
     text-decoration: none;
     color:white;
 }
-.menu a
+
+footer .menu a
 {
     /*font-size: 1.2em;*/
     color:white;
 }
 
-.sous-menu a
+footer .sous-menu a
 {
 
     color:grey;
@@ -340,6 +361,11 @@ footer .sous-menu
 .logo
 {
     height: 50px;
+}
+
+#membre
+{
+    margin-bottom:10px;
 }
 
 /*LIENS UTILES*/

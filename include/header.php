@@ -1,6 +1,6 @@
 
 <header>
-    <section class="panneau">
+    <section class="panneau-row">
         <div>
             <img src="img/logo_cgt.png" id="logo-top">
             <strong id="titre">CGT Territoriaux et ICT</br>

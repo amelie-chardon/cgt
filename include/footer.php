@@ -1,11 +1,12 @@
 <footer>
-    <section class="panneau">
+    <section class="panneau-row">
         <div id="logo-bottom">
             <img src="img/logo_cgt.png">
         </div>
         <section id="plan-site">
         <h2>Plan du site</h2>
             <?php require 'include/nav.php'?>
+            <a href="connexion.php" id="membre">Accès membre</a>
         </section>
         <section id="contact">
         <h2>Nous contacter</h2>
