@@ -74,9 +74,6 @@ h1
     padding:5px;
 }
 
-
-
-
 /*HEADER*/
 
 header
@@ -102,7 +99,6 @@ header
 #titre
 {
     font-size: x-large;
-    font-weight: bold;
 }
 
 .banniere
@@ -151,20 +147,39 @@ header .panneau div
     align-items: center;
 }
 
-header .menu li
-{
-    /*flex-grow: 1;
-    height: 100%;
-    border-right: 1px solid #bbb;*/
-}
-
-header .sous-menu
-{
-    flex-direction: column;
+header .sous-menu{
     display: none;
+    background-color:#CF0D2B;
+    color:white;
+    position: absolute;
+    z-index: 1000;
 }
 
-header .sous-menu:hover
+nav > ul li:hover .sous-menu{
+    display: block;
+}
+
+header .sous-menu li{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+
+header .sous-menu a{
+    padding: 10px;
+    border-bottom: none;
+    color:white;
+}
+
+header .sous-menu a:hover{
+    border-bottom: none;
+}
+
+header .deroulant > a::after{
+    content:" ▼";
+}
+
+header .deroulant:hover
 {
     flex-direction: column;
     display: block;
@@ -175,9 +190,13 @@ header nav ul, header nav li
     display:flex;
     align-items: center;
     /*justify-content: space-evenly;*/
-    margin:25px;
     padding: 0;
     list-style: none;
+}
+
+header nav li
+{
+    margin:25px;
 }
 
 header nav a
