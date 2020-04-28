@@ -175,6 +175,11 @@ header .sous-menu{
     z-index: 1000;
 }
 
+header a, header a:visited
+{
+    color:white;
+}
+
 header nav > ul li:hover .sous-menu{
     display: block;
 }
@@ -295,6 +300,7 @@ footer
     align-content: center;
     justify-items: center;
     margin:10px;
+    padding:10px;
     text-align: center;
 }
 
@@ -338,7 +344,7 @@ footer nav a, footer a
     color:white;
 }
 
-footer .menu a
+footer .menu a, footer .menu a:visited
 {
     /*font-size: 1.2em;*/
     color:white;
@@ -347,8 +353,7 @@ footer .menu a
 footer .sous-menu a
 {
 
-    color:grey;
-    /*font-size: 1em;*/
+    font-size: 0.8em;
 }
 
 
