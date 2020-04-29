@@ -4,6 +4,7 @@
         <li><a href="actualites.php">Actualités</a></li>
         <li class="deroulant"><a href="#">Sections</a>
             <ul class="sous-menu">
+            <!--TODO : ajout sections depuis la bdd-->
                 <li><a href="section-ecoles.php">Ecoles</a></li>
                 <li><a href="section-creches.php">Crèches</a></li>
             </ul>

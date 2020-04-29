@@ -1,5 +1,6 @@
 <?php
 
+//Admin : qui a le droit de gérer les articles, les sections, les infos du site (pas de rédaction)
 
 class admin extends user
 {

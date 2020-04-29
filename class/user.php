@@ -2,21 +2,29 @@
 
 class user extends bdd{
     private $id = NULL;
+    private $login = NULL;
     private $mail = NULL;
     private $droits = NULL;
 
 
-    public function inscription($prenom,$nom,$mdp,$confmdp,$mail){
-        if($prenom != NULL && $nom != NULL&& $mdp != NULL && $confmdp != NULL && $mail != NULL){
+    public function inscription($login,$mdp,$confmdp,$mail){
+        if($login != NULL && $mdp != NULL && $confmdp != NULL && $mail != NULL){
             if($mdp == $confmdp){
                 $this->connect();
-                $requete = "SELECT email FROM utilisateurs WHERE email = '$mail'";
+                
+                //On vérifie si le mail est déjà pris
+                $requete = "SELECT mail FROM utilisateurs WHERE mail = '$mail'";
                 $query = mysqli_query($this->connexion,$requete);
                 $result = mysqli_fetch_all($query);
+
+                //On vérifie si le login est déjà pris
+                $requete2 = "SELECT login FROM utilisateurs WHERE login = '$login'";
+                $query2 = mysqli_query($this->connexion,$requete);
+                $result2 = mysqli_fetch_all($query);
                 
-                if(empty($result)){
+                if(empty($result) && empty($result2)){
                     $mdp = password_hash($mdp, PASSWORD_BCRYPT, array('cost' => 12));
-                    $requete = "INSERT INTO utilisateurs(nom,prenom,email,password) VALUES ('$nom','$prenom','$mail','$mdp')";
+                    $requete = "INSERT INTO utilisateurs(login,mail,password,droits) VALUES ('$login','$mail','$mdp','user')";
                     $query = mysqli_query($this->connexion,$requete);
                     return "ok";
                     }
@@ -43,6 +51,7 @@ class user extends bdd{
             if($mail == $result["mail"]){
                 if(password_verify($mdp,$result["password"])){
                     $this->id = $result["id"];
+                    $this->login = $result["login"];
                     $this->mail = $result["mail"];
                     $this->droits = $result["droits"];
                     echo "Succes";
@@ -64,19 +73,6 @@ class user extends bdd{
         $this->id = NULL;
         $this->mail = NULL;
         $this->droits = NULL;
-    }
-
-    public function creation_tache($titre,$description){
-        //TODO : gérer l'enregistrement des tâches pour que l'utilisateur connecté puisse retrouver son tableau lors de la prochaine connexion (charger les taches selon la colonne dans todolist.php)
-        if($titre!= NULL && $description!= NULL){
-            $this->connect();
-            $this->execute("INSERT INTO taches (id_utilisateurs,titre,date_creation,description) VALUES('$this->id','$titre',NOW(),'$description')");
-            return "ok";
-        }
-        else
-        {
-            return "empty";
-        };
     }
 
     //FONCTIONS GET//
