@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 29 avr. 2020 à 15:47
+-- Généré le :  mar. 05 mai 2020 à 17:01
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -53,7 +53,15 @@ CREATE TABLE IF NOT EXISTS `sections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `sections`
+--
+
+INSERT INTO `sections` (`id`, `nom`) VALUES
+(1, 'Ecoles'),
+(2, 'Crèches');
 
 -- --------------------------------------------------------
 
@@ -69,7 +77,14 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `password` varchar(255) NOT NULL,
   `droits` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`id`, `login`, `mail`, `password`, `droits`) VALUES
+(1, 'admin', 'amelie.chardon@laplateforme.io', '$2y$12$TVe1fUoQjTg/qq4xv5Lc0ezkqU.o2sQqTRZRXnGsa5FjK/AhbFXL6', 'Administrateur');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

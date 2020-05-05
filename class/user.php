@@ -1,6 +1,10 @@
 <?php
 
-class user extends bdd{
+//Utilisateur : qui s'inscrit au site (par défaut)
+//Droits : "Utilisateur"
+
+class user extends bdd
+{
     private $id = NULL;
     private $login = NULL;
     private $mail = NULL;
@@ -24,20 +28,20 @@ class user extends bdd{
                 
                 if(empty($result) && empty($result2)){
                     $mdp = password_hash($mdp, PASSWORD_BCRYPT, array('cost' => 12));
-                    $requete = "INSERT INTO utilisateurs(login,mail,password,droits) VALUES ('$login','$mail','$mdp','user')";
+                    $requete = "INSERT INTO utilisateurs(login,mail,password,droits) VALUES ('$login','$mail','$mdp','Utilisateur')";
                     $query = mysqli_query($this->connexion,$requete);
-                    return "ok";
+                    return true;
                     }
                 else{
-                    return "log";
+                    return false;
                 }
             }
             else{
-                return "mdp";
+                return false;
             }
         }
         else{
-            return "empty";
+            return false;
         };
 
     }
@@ -54,18 +58,18 @@ class user extends bdd{
                     $this->login = $result["login"];
                     $this->mail = $result["mail"];
                     $this->droits = $result["droits"];
-                    echo "Succes";
+                    return true;
                 }
                 else{
-                    echo "Echec";
+                    return false;
                 }
             }
             else{
-                echo "Echec";
+                return false;
             }
         }
         else{
-            echo "Echec";
+            return false;
         }
     }
     
@@ -101,7 +105,23 @@ class user extends bdd{
     }
 
     public function isAdmin(){
-        if ($this->droits == 'admin') {
+        if ($this->droits == 'Administrateur') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isRedacteur(){
+        if ($this->droits == 'Rédacteur') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isRelecteur(){
+        if ($this->droits == 'Relecteur') {
             return true;
         } else {
             return false;

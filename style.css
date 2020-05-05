@@ -40,6 +40,12 @@ h1
     margin:30px;
 }
 
+main a, main a:visited,main a:active
+  {
+    text-decoration: none;
+    color:black;
+  }
+
 .panneau-row
 {
     display:flex;
@@ -93,6 +99,72 @@ main form
     justify-items: center;
     align-items: center;
 }
+
+/*BUTTONS*/
+
+.submit {
+    background-color: #CF0D2B;
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor:pointer;
+}
+  
+.submit:hover {
+    background-color: red; 
+    color: white;
+  }
+
+  .submit a
+  {
+      text-decoration: none;
+      color: white;
+  }
+
+  .submit a:visited,.submit a:active
+  {
+    color:white;
+  }
+
+  /*TABLEAUX*/
+
+
+.tableau-admin {
+    border-collapse: collapse;
+    vertical-align: center;
+    margin:15px;
+    border: 1px solid black;
+}
+
+th
+{
+    padding:10px;
+    border: 1px solid black;
+}
+
+td 
+{
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+table form
+{
+    flex-direction: row;
+    margin:auto;
+    margin-block-end: 0;
+    align-items: initial;
+    justify-items: center;
+    justify-content: center;
+}
+
+
 
 /*HEADER*/
 

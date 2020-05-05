@@ -1,11 +1,11 @@
 <footer>
     <section class="panneau-row">
         <div id="logo-bottom">
-            <img src="img/logo_cgt_mini.png">
+            <img src="img/logo_cgt_mini.png"/>
         </div>
         <section id="plan-site">
         <h2>Plan du site</h2>
-            <?php require 'include/nav.php'?>
+            <?php require 'nav.php' ?>
             <a href="connexion.php" id="membre">Accès membre</a>
         </section>
         <section id="contact">
@@ -32,8 +32,8 @@
 
         <section id="follow">
         <h2>Nous suivre</h2>
-        <img class="logo" src="img/logofb.png">
-        <h2>Abonnez-vous à la newsletter</h2>
+        <img class="logo" src="img/logofb.png"/>
+        <h3>Abonnez-vous à la newsletter</h3>
             <form>
                 <input type="mail">
                 <input type="submit">

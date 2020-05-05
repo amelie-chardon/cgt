@@ -1,21 +1,30 @@
 <!doctype html>
 <?php 
-session_start(); 
 
 require 'class/bdd.php';
 require 'class/user.php';
+
+session_start();
+
+if(!isset($_SESSION['bdd']))
+{
+    $_SESSION['bdd'] = new bdd();
+}
+if(!isset($_SESSION['user'])){
+    $_SESSION['user'] = new user();
+}
+
+if($_SESSION['user']->isConnected() != false){
+    header('Location:index.php');
+}
+
 ?>
 
 <html>
 <head>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Connexion - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
- <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Connexion - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -26,14 +35,17 @@ require 'class/user.php';
 
     <section class="panneau-col">
             <section class="bloc">
-                <form class="formulaire" action="admin.php" method="post">
+                <form class="formulaire" action="" method="post">
                     <label>E-mail :</label>
                     <input type="mail" name="mail" required><br>
                     <label>Mot de passe :</label>
                     <input type="password" name="password" required><br>
-                <input type="submit" name="send">
+                <input class="submit" type="submit" name="send">
                 </form>
             </section>
+        <p>Pas encore inscrit ?</p>
+        <a href="inscription.php"><button class="submit" type="submit">Inscription</button></a>
+
 
         <?php
         if(isset($_POST["send"])){
@@ -44,7 +56,8 @@ require 'class/user.php';
             }
             else{
                 $_SESSION["user"]->connexion($_POST["mail"],$_POST["password"]);
-                header('location:index.php');
+                //TODO : ajouter condition pour admin ou vérif
+                header('location:admin/index.php');
             }
         }
         ?>
