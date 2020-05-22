@@ -2,6 +2,7 @@ html
 {
     margin:0;
     padding:0;
+    width: 100%;
 }
 
 body
@@ -22,8 +23,9 @@ main
 {
     display: flex;
     flex-direction: column;
-    min-height: 60vh;
+    min-height: 30vh;
     width: 80vw;
+    padding-bottom:15px;
     /*justify-content: center;*/
     justify-items: center;
     align-content: center;
@@ -40,10 +42,15 @@ h1
     margin:30px;
 }
 
-main a, main a:visited,main a:active
+.row
+{
+    margin:0;
+}
+
+main a, main a:visited,main a:active, main a:link
   {
     text-decoration: none;
-    color:black;
+    color:white;
   }
 
 .panneau-row
@@ -126,7 +133,7 @@ main form
       color: white;
   }
 
-  .submit a:visited,.submit a:active
+  .submit a:visited,.submit a:active, .submit a:link
   {
     color:white;
   }
@@ -179,18 +186,14 @@ header
     align-items: center;
     background-color:#CF0D2B;
     color:white;
+    right: 0;
 }
 
 #logo-top
 {
-    margin:10px;
-    width: 5vw;
-    height:5vw;
-}
-
-#titre
-{
-    font-size: x-large;
+    margin:2px;
+    width: 4vw;
+    height:4vw;
 }
 
 .banniere
@@ -223,6 +226,7 @@ header nav
     font-size: larger;
     height:8vh;
     color:white;
+    background-color:#CF0D2B;
     /*background-color:#FF0E05;*/
 }
 
@@ -247,9 +251,10 @@ header .sous-menu{
     z-index: 1000;
 }
 
-header a, header a:visited
+header a, header a:visited, header a:link
 {
     color:white;
+    text-decoration: none;
 }
 
 header nav > ul li:hover .sous-menu{
@@ -282,6 +287,12 @@ header .deroulant:hover
     display: block;
 }
 
+
+header #menu
+{
+    background-color:#CF0D2B;
+}
+
 header nav ul, header nav li
 {
     display:flex;
@@ -306,7 +317,12 @@ header nav a
 
 header nav a:hover
 {
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+.navbar
+{
+    padding:0;
 }
 
 /*FOOTER*/
@@ -410,15 +426,13 @@ footer nav ul li
     flex-direction: column;
 }
 
-footer nav a, footer a
+footer nav a, footer a, footer a:link, footer a:visited
 {
-    text-decoration: none;
     color:white;
 }
 
-footer .menu a, footer .menu a:visited
+footer .menu a, footer .menu a:visited, footer .menu a:link
 {
-    /*font-size: 1.2em;*/
     color:white;
 }
 

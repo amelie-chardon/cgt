@@ -24,6 +24,7 @@ if($_SESSION['user']->isAdmin()!=true){
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="../style.css">
         <title>Admin - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
     </head>
@@ -56,7 +57,7 @@ if($_SESSION['user']->isAdmin()!=true){
         <td><?php echo $login ; ?> </td>
         <td><?php echo $mail ; ?> </td>
         <td><?php echo $droits ; ?> </td>
-        <td><form method="post" action="utilisateurs.php"><button class="submit" type="submit" id="suppr_utilisateur" name="utilisateur_<?php echo $id; ?>">Supprimer l'utilisateur</button></form></td>
+        <td><form method="post" action="utilisateurs.php"><button class="submit btn btn-danger" type="submit" id="suppr_utilisateur" name="utilisateur_<?php echo $id; ?>">Supprimer l'utilisateur</button></form></td>
         <td><form method="post" action="utilisateurs.php"><select name="droits" id="droits"><option value="">Modifier droits</option><option value="Utilisateur">Utilisateur</option><option value="Rédacteur">Rédacteur</option><option value="Relecteur">Relecteur</option><option value="Administrateur">Administrateur</option></select><input class="submit" type="submit" id="submit" name="droit_utilisateur_<?php echo $id; ?>"></form></td>
         </tr>
         <?php 
@@ -76,8 +77,12 @@ if($_SESSION['user']->isAdmin()!=true){
     </tbody>
 </table>
     <section class="section_wrap">
-        <a href="index.php"><button class="submit" type="submit">Retour</button></a>
+        <a href="index.php"><button class="submit btn btn-danger" type="submit">Retour</button></a>
     </section>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
