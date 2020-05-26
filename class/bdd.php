@@ -64,7 +64,7 @@ public function connect()
     }
 
     //Fonction pour supprimer les accents d'une chaîne de caractères
-    public function supprAccents($str)
+    public function str2url($str)
     {
         $url = $str;
         $url = preg_replace('#Ç#', 'C', $url);
@@ -81,6 +81,10 @@ public function connect()
         $url = preg_replace('#Ù|Ú|Û|Ü#', 'U', $url);
         $url = preg_replace('#ý|ÿ#', 'y', $url);
         $url = preg_replace('#Ý#', 'Y', $url);
+        $url = preg_replace('#([^.a-z0-9]+)#i', '-', $url); 
+        $url = preg_replace('#-{2,}#','-',$url); 
+        $url = preg_replace('#-$#','',$url); 
+        $url = preg_replace('#^-#','',$url); 
          
         return ($url);
     }

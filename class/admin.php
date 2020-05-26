@@ -45,9 +45,24 @@ class admin extends user
     public function supprSection($id){
         $this->connect();
         $this->execute("SET NAMES UTF8");
+        $nom=$this->execute("SELECT nom FROM sections WHERE id=$id");
         $result=$this->execute("DELETE FROM sections WHERE id=$id");
+        $nom=$nom[0][0];
+        $nom_fichier=$this->str2url($nom);
+        unlink("../section-$nom_fichier.php");
         return $result;
     }
+
+    //Fonction pour créer une section dans la bdd et un fichier php en local
+    public function addSection($nom){
+        $this->connect();
+        $this->execute("SET NAMES UTF8");
+        $result=$this->execute("INSERT INTO sections (id,nom) VALUES (NULL,\"$nom\")");
+        $nom_fichier=$this->str2url($nom);
+        $myfile = fopen("../section-$nom_fichier.php", "w");
+        return $result;
+    }
+
 }
 
 
