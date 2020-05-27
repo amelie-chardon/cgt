@@ -29,12 +29,16 @@ main
     /*justify-content: center;*/
     justify-items: center;
     align-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top:20px;
+    padding-bottom:20px;
 }
 
 h1,h2
 {
     justify-content: center;
     display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1
@@ -47,6 +51,11 @@ h1
     margin:0;
 }
 
+.jumbotron
+{
+    border-radius: .25rem;
+}
+
 main a, main a:visited,main a:active, main a:link
   {
     text-decoration: none;
@@ -56,7 +65,7 @@ main a, main a:visited,main a:active, main a:link
 .panneau-row
 {
     display:flex;
-    width: 80vw;
+    width: 100vw;
     flex-direction:row ;
     justify-content: space-between;
     justify-items: center;
@@ -163,6 +172,7 @@ header
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: fit-content;
     justify-items: center;
     justify-content: center;
     align-content: center;
@@ -174,7 +184,7 @@ header
 
 #logo-top
 {
-    margin:2px;
+    margin:5px;
     width: 4vw;
     height:4vw;
 }
@@ -207,7 +217,8 @@ header nav
     align-items: center;
     flex-direction: row;
     font-size: larger;
-    height:8vh;
+    /*height:8vh;*/
+    width: max-content;
     color:white;
     background-color:#CF0D2B;
     /*background-color:#FF0E05;*/
@@ -216,7 +227,8 @@ header nav
 header .menu
 {
     display: flex;
-    /*width: 100vw;*/
+    flex-direction: row;
+    width: 100vw;
 }
 
 header .panneau-row div
@@ -345,7 +357,7 @@ footer
     align-content: center;
     align-items: center;
 }
-
+/*
 #contact
 {
     display: flex;
@@ -353,7 +365,7 @@ footer
     align-content: center;
     align-items: center;
 }
-
+*/
 #sous-contact
 {
     display: flex;
@@ -434,7 +446,7 @@ footer .sous-menu
 
 .logo
 {
-    height: 50px;
+    height: 40px;
 }
 
 #membre

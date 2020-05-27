@@ -28,7 +28,14 @@ if(!isset($_SESSION['user'])){
 <?php require 'include/header.php'?>
 
     <main>
+    <h1 class="display-4">Section Ecoles</h1>
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h3 class="text-center">Vos référents</h3>
+            <p class="lead">Texte</p>
+        </div>
+    </div>
 
 
 

@@ -8,7 +8,7 @@ $sections=$_SESSION["bdd"]->execute("SELECT nom FROM sections");
 ?>
 
 <nav class="navbar navbar-expand-lg collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="menu navbar-nav" id="menu">
+    <ul class="menu navbar-nav w-100 justify-content-end" id="menu">
         <li><a href="index.php">Accueil</a></li>
         <li><a href="actualites.php">Actualités</a></li>
         <li class="deroulant"><a href="#">Sections</a>

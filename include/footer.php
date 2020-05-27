@@ -8,10 +8,10 @@
             <?php /*require 'nav.php'*/?>
             <a href="connexion.php" id="membre">Accès membre</a>
         </section>
-        <section id="contact" class="col-12 col-sm-12 col-md-12 col-lg-6">
+        <section id="contact" class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
         <h2>Nous contacter</h2>
         <section id="sous-contact">
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                 <h4>CGT Territoriaux</br>
                 Ville de Marseille & CCAS</h4>
                 <p>4, Bd Henri Boulle</br>
@@ -19,7 +19,7 @@
                 04 91 36 20 73</br>
                 <a href="mailto:cgtvdm@free.fr">cgtvdm@free.fr</a></p>
             </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                 <h4>CGT ICT</br>
                 Ville de Marseille & CCAS</h4>
                 <p>4, Bd Henri Boulle</br>
@@ -32,11 +32,11 @@
 
         <section id="follow" class="col-12 col-sm-12 col-md-12 col-lg-3">
         <h2>Nous suivre</h2>
-        <img class="logo" src="img/logofb.png"/>
-        <h4 class="text-center">Abonnez-vous à la newsletter</h4>
-            <form>
-                <input type="mail">
-                <input type="submit">
+        <img class="logo" src="img/logofb_white.png"/>
+        <h4 class="text-center mt-4">Abonnez-vous à la newsletter</h4>
+            <form class="form-inline">
+                <input type="mail" class="form-control m-1" required/>
+                <input class="submit btn btn-danger" type="submit"/>
             </form>
         </section>
     </section>

@@ -27,6 +27,7 @@ if(!isset($_SESSION['user'])){
 <?php require 'include/header.php'?>
 
     <main>
+    <h1 class="display-4">Actualités</h1>
 
 
 
