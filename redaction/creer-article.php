@@ -6,6 +6,7 @@ require '../class/relecteur.php';
 
 session_start();
 
+
 if(!isset($_SESSION['bdd']))
 {
     $_SESSION['bdd'] = new bdd();
@@ -44,16 +45,19 @@ if(isset($_POST["submit"]))
     if(isset($_SESSION['relecteur']))
     {
         $_SESSION['relecteur']->writeArticles();
+       
 
     }
 
     if(isset($_SESSION['redacteur']))
     {
         $_SESSION['redacteur']->writeArticles();
+        
 
     }
     
 }
+
 
 
 
@@ -95,6 +99,17 @@ if(isset($_POST["submit"]))
       <option value="">1</option>
       <option value="">2</option>
       <option value="">3</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="Choix du thème">Choix du thème</label>
+    <select class="form-control" name="section">
+    <?php
+    foreach ($_SESSION['relecteur']->getSection() as $r)
+    {
+        echo "<option value=".$r[0].">".$r[1]."</option>";
+    }
+    ?>
     </select>
   </div>
   
