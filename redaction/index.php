@@ -1,8 +1,8 @@
 <!doctype html>
-<?php
-
-require 'class/bdd.php';
-require 'class/user.php';
+<?php 
+require '../class/bdd.php';
+require '../class/user.php';
+require '../class/admin.php';
 
 session_start();
 
@@ -10,33 +10,41 @@ if(!isset($_SESSION['bdd']))
 {
     $_SESSION['bdd'] = new bdd();
 }
+
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
-?>
 
+if(!isset($_SESSION['admin'])){
+    $_SESSION['admin'] = new admin();
+}
+
+if($_SESSION['user']->isAdmin()!=true){
+    header('Location:../index.php');
+}
+
+
+?>
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-        <title>Accueil - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
+        <link rel="stylesheet" href="../style.css">
+        <title>Admin - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
     </head>
 
 <body>
-<?php require 'include/header.php'?>
 
     <main>
-
-
-
-
+    
+    <h1>Administration du site</h1>
+        <section class="section_wrap">
+            <a href="utilisateurs.php"><button class="submit btn btn-danger" type="submit">Utilisateurs</button></a>
+            <a href="sections.php"><button class="submit btn btn-danger" type="submit">Sections</button></a>
+            <a href="../deconnexion.php"><button class="submit btn btn-danger" type="submit">Déconnexion</button></a>
+        </section>
     </main>
-
-<?php require 'include/footer.php'?>
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

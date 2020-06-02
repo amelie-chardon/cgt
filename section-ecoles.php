@@ -13,29 +13,35 @@ if(!isset($_SESSION['bdd']))
 if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
+
 ?>
 
-
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-        <title>Accueil - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
-    </head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Accueil - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
 <?php require 'include/header.php'?>
 
     <main>
+    <h1 class="display-4">Section Ecoles</h1>
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h3 class="text-center">Vos référents</h3>
+            <p class="lead">Texte</p>
+        </div>
+    </div>
 
 
 
     </main>
 
 <?php require 'include/footer.php'?>
-
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

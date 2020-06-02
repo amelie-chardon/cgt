@@ -1,22 +1,17 @@
-<header>
-    <section class="menu-top">
-        <nav>
-            <ul class="menu">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Actualités</a></li>
-                <li><a href="#">Sections</a>
-                    <ul class="sous-menu">
-                        <li><a href="#">ICT</a></li>
-                        <li><a href="#">Territoriaux</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Qui-sommes-nous ?</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </section>
-    <div class="banniere">
-        <img src="img/logo_cgt.png" id="logo-top">
-        <h1 class="titre">Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</h1>
+
+<header class="p-2">
+    <section class="panneau-row row navbar-expand-lg navbar navbar-light justify-content-between">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-3">
+            <img class="img-fluid" src="img/logo_cgt_mini.png" id="logo-top"/>
+            <strong class="lead" id="titre">CGT Territoriaux et ICT</br>
+            Ville de Marseille & CCAS</strong>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-9">
+        <?php require 'nav.php'?>
     </div>
+    </section>
 </header>
+
