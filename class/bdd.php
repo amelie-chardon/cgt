@@ -24,21 +24,23 @@ public function connect()
 
     public function execute($query)
     { 
-        $this->query=$query;
-        $execute=mysqli_query($this->connexion, $query);
+        {
+            $this->query=$query;
+            $execute=mysqli_query($this->connexion, $query);
 
-        // Si le résultat est un booléen 
-        if(is_bool($execute))
-        {
-            $this->result=$execute;
+            // Si le résultat est un booléen 
+            if(is_bool($execute))
+            {
+                $this->result=$execute;
+            }
+            // Si le résultat est un tableau
+            else
+            {
+                $this->result=mysqli_fetch_all($execute);
+            }
+
+            return $this->result;
         }
-        // Si le résultat est un tableau
-        else
-        {
-            $this->result=mysqli_fetch_all($execute);
-        }
-        return $this->result;
-        $this->close();
     }
 
 //Fonctions sur la BDD
@@ -50,6 +52,7 @@ public function connect()
         $str=addslashes($str);
         $result=$this->execute("SELECT id,titre from articles WHERE titre,contenu LIKE '%$str%' GROUP BY id ORDER BY id DESC");
         $this->search=$str;
+        var_dump($str);
         return $result;
     }
 
@@ -60,6 +63,16 @@ public function connect()
         $result=$this->execute("SELECT * from articles WHERE id=$id");
         return $result;
     }
+
+    //Fonction pour récupérer les derniers articles
+    public function lastArticle($i){
+        $this->connect();
+        $this->execute("SET NAMES UTF8");
+        $result=$this->execute("SELECT id,titre,sous_titre from articles  ORDER BY `articles`.`date` DESC LIMIT 3 OFFSET 0");
+        return $result[$i];
+              
+    }
+    
 
     //Fonction pour supprimer les accents d'une chaîne de caractères
     public function str2url($str)
