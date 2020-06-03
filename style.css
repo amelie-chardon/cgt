@@ -59,7 +59,8 @@ h1
 main a, main a:visited,main a:active, main a:link
   {
     text-decoration: none;
-    color:white;
+    color:black;
+    cursor: pointer;
   }
 
 .panneau-row

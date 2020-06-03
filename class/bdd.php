@@ -24,23 +24,21 @@ public function connect()
 
     public function execute($query)
     { 
+        $this->query=$query;
+        $execute=mysqli_query($this->connexion, $query);
+
+        // Si le résultat est un booléen 
+        if(is_bool($execute))
         {
-            $this->query=$query;
-            $execute=mysqli_query($this->connexion, $query);
-
-            // Si le résultat est un booléen 
-            if(is_bool($execute))
-            {
-                $this->result=$execute;
-            }
-            // Si le résultat est un tableau
-            else
-            {
-                $this->result=mysqli_fetch_all($execute);
-            }
-
-            return $this->result;
+            $this->result=$execute;
         }
+        // Si le résultat est un tableau
+        else
+        {
+            $this->result=mysqli_fetch_all($execute);
+        }
+        return $this->result;
+        $this->close();
     }
 
 //Fonctions sur la BDD

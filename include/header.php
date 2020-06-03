@@ -1,7 +1,7 @@
 
 <header class="p-2">
     <section class="panneau-row row navbar-expand-lg navbar navbar-light justify-content-between">
-        <div class="col-12 col-sm-12 col-md-10 col-lg-3">
+        <div class="col-12 col-sm-8 col-md-8 col-lg-3">
             <img class="img-fluid" src="img/logo_cgt_mini.png" id="logo-top"/>
             <strong class="lead" id="titre">CGT Territoriaux et ICT</br>
             Ville de Marseille & CCAS</strong>

@@ -6,7 +6,6 @@ $_SESSION["bdd"]->execute("SET NAMES UTF8");
 $sections=$_SESSION["bdd"]->execute("SELECT nom FROM sections");
 
 ?>
-
 <nav class="navbar navbar-expand-lg collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="menu navbar-nav w-100 justify-content-end" id="menu">
         <li><a href="index.php">Accueil</a></li>
@@ -26,3 +25,4 @@ $sections=$_SESSION["bdd"]->execute("SELECT nom FROM sections");
         <li class="nav-item"><a href="liens-utiles.php">Liens utiles</a></li>
     </ul>
 </nav>
+

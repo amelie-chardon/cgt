@@ -5,13 +5,13 @@
         </div>
         <section id="plan-site" class="col-12 col-sm-12 col-md-12 col-lg-2">
             <h2>Plan du site</h2>
-            <?php /*require 'nav.php'*/?>
+                <?php /*require 'nav.php'*/?>
             <a href="connexion.php" id="membre">Accès membre</a>
         </section>
         <section id="contact" class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
         <h2>Nous contacter</h2>
         <section id="sous-contact">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-5">
                 <h4>CGT Territoriaux</br>
                 Ville de Marseille & CCAS</h4>
                 <p>4, Bd Henri Boulle</br>
@@ -19,7 +19,7 @@
                 04 91 36 20 73</br>
                 <a href="mailto:cgtvdm@free.fr">cgtvdm@free.fr</a></p>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-5">
                 <h4>CGT ICT</br>
                 Ville de Marseille & CCAS</h4>
                 <p>4, Bd Henri Boulle</br>

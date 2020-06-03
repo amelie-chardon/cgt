@@ -30,8 +30,8 @@ if(!isset($_SESSION['user'])){
 
 <h1 class="display-4">Liens utiles</h1>
 
-<section class="row text-center p-2 m-2">
-    <section class="col-12 col-sm-12 col-md-6 col lg-6">
+<section class="row text-center p-2 m-2 jumbotron">
+    <section class="col-12 col-sm-12 col-md-6 col lg-6 p-2">
     <h3>L'UGICT-CGT</h3>
     <p>Case 408 - 263 rue de Paris</br>
     93516 Montreuil cedex</br>
@@ -39,8 +39,8 @@ if(!isset($_SESSION['user'])){
     <a href="mailto:ugict@cgt.fr">ugict@cgt.fr</a></p>
     </section>
     
-    <section class="col-12 col-sm-12 col-md-6 col lg-6">
-    <h3>Fédération CGT des services publiques</h3>
+    <section class="col-12 col-sm-12 col-md-6 col lg-6 p-2">
+    <h3>Fédération CGT des services publics</h3>
     <p>263 rue de Paris</br>
     Case 547 - 93515 Montreuil cedex</br>
     01 55 82 88 20</br>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['user'])){
     <a href="https://www.cgtservicespublics.fr" target="_blank">https://www.cgtservicespublics.fr</a></p>
     </section>
 
-    <section class="col-12 col-sm-12 col-md-6 col lg-6">
+    <section class="col-12 col-sm-12 col-md-6 col lg-6 p-2">
     <h3>Union départementale CGT13</h3>
     <p>23 boulevard charles Nedelec</br>
     13003 Marseille</br>
@@ -56,7 +56,7 @@ if(!isset($_SESSION['user'])){
     <a href="mailto:ud-cgt-13@wanadoo.fr">ud-cgt-13@wanadoo.fr</a></br>
     </section>
 
-    <section class="col-12 col-sm-12 col-md-6 col lg-6">
+    <section class="col-12 col-sm-12 col-md-6 col lg-6 p-2">
     <h3>Union locale CGT Saint Lazare</h3>
     <p>2 rue d'Amiens</br>
     13003 Marseille</br>
