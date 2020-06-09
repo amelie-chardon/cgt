@@ -6,6 +6,7 @@ require 'class/user.php';
 
 session_start();
 
+
 if(!isset($_SESSION['bdd']))
 {
     $_SESSION['bdd'] = new bdd();

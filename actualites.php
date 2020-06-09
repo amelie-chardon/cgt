@@ -15,13 +15,13 @@ if(!isset($_SESSION['user'])){
 }
 
 
+
+
 $bdd = $_SESSION['bdd'];
 
 $article1=$bdd->lastArticle(0);
 $article2=$bdd->lastArticle(1);
 $article3=$bdd->lastArticle(2);
-
-
 
 
 
@@ -33,6 +33,15 @@ $article3=$bdd->lastArticle(2);
     <title>Actualités - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <style>
+    p{
+      color:black;
+    }
+    h5
+    {
+      color:black;
+    }
+    </style> 
 </head>
 
 <body>
@@ -50,21 +59,21 @@ $article3=$bdd->lastArticle(2);
   
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="img/CGT-Renault.jpeg" alt="First slide">
+      <img class="d-block w-100" src="<?php echo $article1[3]; ?>" width="500px" height="600px" alt="First slide">
       <div class="carousel-caption d-none d-md-block">
       <h5><?php echo $article1[1]; ?></h5>
     <p><?php echo $article1[2]; ?></p>
     </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/ob_0b8733_ob-20d250-renault.jpg" alt="Second slide">
+      <img class="d-block w-100" src="<?php echo $article2[3]; ?>" width="500px" height="600px"  alt="Second slide">
       <div class="carousel-caption d-none d-md-block">
       <h5><?php echo $article2[1];?></h5>
     <p><?php echo $article2[2]; ?></p>
     </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/cgt-renault.jpg" alt="Third slide">
+      <img class="d-block w-100" src="<?php echo $article3[3]; ?>" width="500px" height="600px"  alt="Third slide">
       <div class="carousel-caption d-none d-md-block">
       <h5><?php echo $article3[1];?></h5>
     <p><?php echo $article3[2]; ?></p>

@@ -113,7 +113,7 @@ class user extends bdd
     }
 
     public function isRedacteur(){
-        if ($this->droits == 'Rédacteur') {
+        if ($this->droits == 'Redacteur') {
             return true;
         } else {
             return false;

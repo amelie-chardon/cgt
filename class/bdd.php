@@ -64,13 +64,32 @@ public function connect()
         return $result;
     }
 
+    //Fonction pour récupérer tous les articles
+    public function getArticles($id){
+        $this->connect();
+        $this->execute("SET NAMES UTF8");
+        $result=$this->execute("SELECT articles.id, articles.titre,articles.contenu,utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateurs");
+        return $result;
+    }
+
     //Fonction pour récupérer les derniers articles
     public function lastArticle($i){
         $this->connect();
         $this->execute("SET NAMES UTF8");
-        $result=$this->execute("SELECT id,titre,sous_titre from articles  ORDER BY `articles`.`date` DESC LIMIT 3 OFFSET 0");
+        $result=$this->execute("SELECT id,titre,sous_titre,img FROM articles  ORDER BY `articles`.`date` DESC LIMIT 3 OFFSET 0");
         return $result[$i];
               
+    }
+
+    //Fonction de récupération des sections 
+    public function getSection()
+    {
+        $this->connect();
+        $this->execute("SET NAMES UTF8");
+        $result=$this->execute("SELECT * FROM sections");
+
+        return $result;
+
     }
     
 
