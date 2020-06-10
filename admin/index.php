@@ -6,6 +6,8 @@ require '../class/admin.php';
 
 session_start();
 
+
+
 if(!isset($_SESSION['bdd']))
 {
     $_SESSION['bdd'] = new bdd();
@@ -22,7 +24,6 @@ if(!isset($_SESSION['admin'])){
 if($_SESSION['user']->isAdmin()!=true){
     header('Location:../index.php');
 }
-
 ?>
 
 <html>

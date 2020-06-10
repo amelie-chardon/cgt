@@ -9,18 +9,34 @@ class relecteur extends redacteur
     public function writeArticles(){
         $this->connect();
         $this->execute("SET NAMES UTF8");
-        $result=$this->execute("INSERT INTO `articles` (`id`, `id_utilisateurs`, `id_sections`, `titre`, `sous_titre`, `date`, `contenu`, `statut`)VALUES(NULL,'".$_SESSION['user']->getid()."', '1', '".$_POST['titre']."', '".$_POST['stitre']."',NOW(),'".$_POST['article']."', '0')");
+        $result=$this->execute("INSERT INTO `articles`(`id`, `id_utilisateurs`, `id_sections`, `titre`, `sous_titre`, `date`, `contenu`, `statut`,`img`) VALUES (NULL, '".$_SESSION['user']->getid()."','1', '".$_POST['titre']."', '".$_POST['stitre']."',NOW(),'".$_POST['article']."', '0','".$_POST['img']."')");
         
+        echo "Votre article a bien été enregistrer il est désormais en attente de publication !!";
+
+        header("Refresh:2; url=creer-article.php");
+        
+
         return $result;
     }
     
     //Fonction pour récupérer tous les articles
-    public function getArticles(){
+    public function getArticles($id){
         $this->connect();
         $this->execute("SET NAMES UTF8");
-        $result=$this->execute("SELECT articles.id, articles.titre,utilisateurs.login, FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateurs");
+        $result=$this->execute("SELECT articles.id, articles.titre,articles.contenu,articles.statut,utilisateurs.login, FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateurs");
         return $result;
     }
+
+    ////Fonction Valider un article
+    public function validate($id,$statut){
+        $this->connect();
+        $this->execute("SET NAMES UTF8");
+        $result=$this->execute("UPDATE articles SET statut = \"$statut\" WHERE articles.id = $id");
+        return $result;
+    }
+
+    
+   
 
     //Fonction pour supprimer un article
     public function supprArticle($id){
@@ -30,15 +46,5 @@ class relecteur extends redacteur
         return $result;
     }
 
-    public function getSection()
-    {
-        $this->connect();
-        $this->execute("SET NAMES UTF8");
-        $result=$this->execute("SELECT * FROM sections");
-        
-        return $result;
-
-
-    }
 }
 ?>

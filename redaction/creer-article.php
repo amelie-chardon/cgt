@@ -7,6 +7,7 @@ require '../class/relecteur.php';
 session_start();
 
 
+
 if(!isset($_SESSION['bdd']))
 {
     $_SESSION['bdd'] = new bdd();
@@ -31,8 +32,14 @@ if($_SESSION['user']->isRedacteur()==true)
     }
 }
 
+
+
 if($_SESSION['user']->isRelecteur()==true)
 {
+  if(!isset($_SESSION['redacteur']))
+  {
+      $_SESSION['redacteur'] = new redacteur();
+  }
     if(!isset($_SESSION['relecteur']))
     {
         $_SESSION['relecteur'] = new relecteur();
@@ -45,23 +52,16 @@ if(isset($_POST["submit"]))
     if(isset($_SESSION['relecteur']))
     {
         $_SESSION['relecteur']->writeArticles();
-       
 
     }
 
     if(isset($_SESSION['redacteur']))
     {
         $_SESSION['redacteur']->writeArticles();
-        
 
     }
     
 }
-
-
-
-
-
 
 
 ?>
@@ -71,7 +71,7 @@ if(isset($_POST["submit"]))
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../style.css">
         <title>Accueil - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
         
     </head>
@@ -85,13 +85,18 @@ if(isset($_POST["submit"]))
 
     <section class="container-fluid">
 <form method="POST" action="">
+
   <div class="form-group">
     <label for="Titre de l'article">Titre de l'article</label>
-    <input type="text" class="form-control" name="titre" placeholder="Titre de l'article">
+    <input type="text" class="form-control" name="titre" placeholder="Titre de l'article" required>
   </div>
   <div class="form-group">
     <label for="Sous titre de l'article">Sous Titre de l'article</label>
-    <input type="text" class="form-control" name="stitre" placeholder="Sous titre de l'article">
+    <input type="text" class="form-control" name="stitre" placeholder="Sous titre de l'article" required>
+  </div>
+  <div class="form-group">
+    <label for="Insérer une image">Insérer une image</label>
+    <input type="text" class="form-control" name="img" placeholder="Insérer une image" required>
   </div>
   <div class="form-group">
     <label for="Choix du thème">Choix du thème</label>
@@ -101,22 +106,26 @@ if(isset($_POST["submit"]))
       <option value="">3</option>
     </select>
   </div>
+  
   <div class="form-group">
-    <label for="Choix du thème">Choix du thème</label>
+    <label for="Choix du thème">Choix de la section</label>
     <select class="form-control" name="section">
     <?php
-    foreach ($_SESSION['relecteur']->getSection() as $r)
+    
+    foreach ($_SESSION['bdd']->getSection() as $r)
     {
         echo "<option value=".$r[0].">".$r[1]."</option>";
     }
     ?>
+
+    <div class="form-group">
+    <label for="Redigez votre article">Redigez votre article</label>
+    <textarea class="form-control" name="article" rows="10" cols="160" required></textarea>
+  </div>
     </select>
   </div>
   
-  <div class="form-group">
-    <label for="Redigez votre article">Redigez votre article</label>
-    <textarea class="form-control" name="article" rows="8"></textarea>
-  </div>
+  
   <button type="submit" class="btn btn-danger" name="submit">Valider l'article</button>
 </form>
     </section>

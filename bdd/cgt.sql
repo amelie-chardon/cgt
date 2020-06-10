@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 05 mai 2020 à 17:01
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Généré le :  mer. 10 juin 2020 à 13:21
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,8 +39,21 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `sous_titre` varchar(1000) DEFAULT NULL,
   `date` date NOT NULL,
   `contenu` text NOT NULL,
+  `statut` int(11) NOT NULL,
+  `img` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `articles`
+--
+
+INSERT INTO `articles` (`id`, `id_utilisateurs`, `id_sections`, `titre`, `sous_titre`, `date`, `contenu`, `statut`, `img`) VALUES
+(1, 2, 1, 'la greve', 'cgt renault flins en greve', '2020-05-31', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjerojorjjtr', 1, 'img/CGT-Renault.jpeg'),
+(2, 2, 1, 'la greve2', 'cgt renault flins en greve ertyu', '2020-05-30', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjeroertyjorjjtr', 1, 'img/img.jpg'),
+(3, 5, 1, 'la greve3', 'cgt renault flins en greve ertyu ertrytuyrter', '2020-06-03', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjeroertyjorjjtr', 1, 'img/ob_0b8733_ob-20d250-renault.jpg'),
+(35, 2, 1, 'azerty', 'zertyui', '2020-06-09', 'mpoiuytresqw', 1, 'img/logofb.png'),
+(36, 2, 1, 'zertyuk', 'zertyui', '2020-06-09', 'qsderftyuiop^$*\r\n', 0, 'img/logofb.png');
 
 -- --------------------------------------------------------
 
@@ -77,14 +90,16 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `password` varchar(255) NOT NULL,
   `droits` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `mail`, `password`, `droits`) VALUES
-(1, 'admin', 'amelie.chardon@laplateforme.io', '$2y$12$TVe1fUoQjTg/qq4xv5Lc0ezkqU.o2sQqTRZRXnGsa5FjK/AhbFXL6', 'Administrateur');
+(1, 'admin', 'amelie.chardon@laplateforme.io', '$2y$12$TVe1fUoQjTg/qq4xv5Lc0ezkqU.o2sQqTRZRXnGsa5FjK/AhbFXL6', 'Administrateur'),
+(2, 'ikki88', 'jdcolas888@gmail.com', '$2y$12$F3fNXP3iJpW8gL.LJR8UO.lzGJL8jMZlYpULIjOfY1DIo4bsJXX2e', 'Redacteur'),
+(5, 'le d ', 'jdcolas8887@gmail.com', '$2y$12$CqT/6KaG6yYDzqUVpDOCue0dcGgraBF4p.fOwXiAEGoUUVqIEjIUS', 'Relecteur');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
