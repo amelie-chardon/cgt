@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 09 juin 2020 à 09:47
+-- Généré le :  mer. 10 juin 2020 à 13:21
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -49,10 +49,10 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`id`, `id_utilisateurs`, `id_sections`, `titre`, `sous_titre`, `date`, `contenu`, `statut`, `img`) VALUES
-(1, 2, 1, 'la greve', 'cgt renault flins en greve', '2020-05-31', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjerojorjjtr', 0, 'img/CGT-Renault.jpeg'),
-(2, 2, 1, 'la greve2', 'cgt renault flins en greve ertyu', '2020-05-30', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjeroertyjorjjtr', 0, 'img/img.jpg'),
-(3, 2, 1, 'la greve3', 'cgt renault flins en greve ertyu ertrytuyrter', '2020-06-03', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjeroertyjorjjtr', 0, 'img/ob_0b8733_ob-20d250-renault.jpg'),
-(35, 2, 1, 'azerty', 'zertyui', '2020-06-09', 'mpoiuytresqw', 0, 'img/logofb.png'),
+(1, 2, 1, 'la greve', 'cgt renault flins en greve', '2020-05-31', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjerojorjjtr', 1, 'img/CGT-Renault.jpeg'),
+(2, 2, 1, 'la greve2', 'cgt renault flins en greve ertyu', '2020-05-30', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjeroertyjorjjtr', 1, 'img/img.jpg'),
+(3, 5, 1, 'la greve3', 'cgt renault flins en greve ertyu ertrytuyrter', '2020-06-03', 'outpoetojreooorejtoiperjtopcerjpotjoperotjpoerjtpjerptpapojpjeroertyjorjjtr', 1, 'img/ob_0b8733_ob-20d250-renault.jpg'),
+(35, 2, 1, 'azerty', 'zertyui', '2020-06-09', 'mpoiuytresqw', 1, 'img/logofb.png'),
 (36, 2, 1, 'zertyuk', 'zertyui', '2020-06-09', 'qsderftyuiop^$*\r\n', 0, 'img/logofb.png');
 
 -- --------------------------------------------------------

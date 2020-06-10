@@ -30,7 +30,7 @@ class redacteur extends user
     public function getArticlesRedac(){
         $this->connect();
         $this->execute("SET NAMES UTF8");
-        $id=$this->id;
+        $id=$_SESSION["user"]->getid();
         $result=$this->execute("SELECT articles.id, articles.titre,articles.contenu,utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateurs WHERE utilisateurs.id=$id");
         return $result;
     }

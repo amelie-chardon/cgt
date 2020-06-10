@@ -68,7 +68,7 @@ public function connect()
     public function getArticles($id){
         $this->connect();
         $this->execute("SET NAMES UTF8");
-        $result=$this->execute("SELECT articles.id, articles.titre,articles.contenu,utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateurs");
+        $result=$this->execute("SELECT articles.id, articles.titre,articles.contenu,articles.statut,utilisateurs.login FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateurs");
         return $result;
     }
 
