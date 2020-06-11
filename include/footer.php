@@ -1,11 +1,7 @@
 <footer class="page-footer mt-2 p-4">
     <section class="panneau-row row">
-        <div id="logo-bottom" class="col-12 col-sm-12 col-md-12 col-lg-1">
+        <section id="logo-bottom" class="col-12 col-sm-12 col-md-12 col-lg-2">
             <img class="img-fluid" src="img/logo_cgt_mini.png"/>
-        </div>
-        <section id="plan-site" class="col-12 col-sm-12 col-md-12 col-lg-2">
-            <h2>Plan du site</h2>
-                <?php /*require 'nav.php'*/?>
             <a href="connexion.php" id="membre">Accès membre</a>
         </section>
         <section id="contact" class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">

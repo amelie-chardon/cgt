@@ -52,13 +52,20 @@ if($_SESSION['user']->isConnected() != false){
         if(isset($_POST["send"])){
             if($_SESSION["user"]->connexion($_POST["mail"],$_POST["password"]) == false){
                 ?>
-                    <p>Un problème est survenue lors de la connexion veuillez vérifer vos informations de connexion</p>
+                    <p>Un problème est survenu lors de la connexion. Veuillez vérifer vos informations de connexion</p>
                 <?php
             }
             else{
                 $_SESSION["user"]->connexion($_POST["mail"],$_POST["password"]);
                 //TODO : ajouter condition pour admin ou vérif
-                header('location:admin/index.php');
+                if($_SESSION['user']->isAdmin()==true)
+                {
+                    header('location:admin/index.php');
+                }
+                if(($_SESSION['user']->isRelecteur()==true) OR ($_SESSION['user']->isRedacteur()==true))
+                {
+                    header('location:redaction/index.php');
+                }
             }
         }
         ?>

@@ -281,6 +281,7 @@ header .deroulant:hover
 {
     flex-direction: column;
     display: block;
+    transition: all 0.3s ease 0s;
 }
 
 
@@ -339,10 +340,10 @@ footer
 #logo-bottom
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
-
 }
 
 #logo-bottom img
