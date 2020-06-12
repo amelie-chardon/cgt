@@ -14,7 +14,7 @@ $sections=$_SESSION["bdd"]->execute("SELECT nom FROM sections");
             <ul class="sous-menu">
             <?php foreach ($sections as list($section))
             {
-            ?><li><a href="section-<?php echo $_SESSION["bdd"]->str2url($section); ?>"><?php echo $section; ?></a></li>
+            ?><li><a href="section-<?php echo $_SESSION["bdd"]->str2url($section); ?>.php"><?php echo $section; ?></a></li>
             <?php
             }
             ?>
