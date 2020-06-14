@@ -120,7 +120,8 @@ if($_SESSION['user']->isRelecteur()==true)
                          
  
                          $_SESSION['relecteur']->validate($id,$statut);
-                         unset($_POST);
+                         header("refresh:0");
+
                      }
     }
  
