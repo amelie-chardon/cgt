@@ -76,13 +76,89 @@ class user extends bdd
     public function disconnect(){
         $this->id = NULL;
         $this->mail = NULL;
+        $this->login = NULL;
         $this->droits = NULL;
+    }
+
+    public function mes_info()
+    {   
+        $this->connect();
+        $result=$this->execute("SELECT login,mail,droits FROM utilisateurs WHERE id = $this->id");
+        return $result ;
+    }
+
+    public function modify_info($password_confirm,$login = "",$mail= ""){
+        $this->connect();
+        $request = "SELECT password FROM utilisateurs WHERE id = $this->id";
+        $query = mysqli_query($this->connexion,$request);
+        $fetchmdp = mysqli_fetch_assoc($query);
+            if(password_verify($password_confirm,$fetchmdp["password"])){
+                if($login != NULL){
+                    $result=$this->execute("SELECT login FROM utilisateurs WHERE login = \"$login\"");
+                    if(empty($result)){
+                        $this->login = $login;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                if($mail != NULL){
+                    $result=$this->execute("SELECT mail FROM utilisateurs WHERE mail =\"$mail\"");
+                    if(empty($result)){
+                        $this->mail = $mail;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                $request = "UPDATE utilisateurs SET login = \"$this->login\", mail =\"$this->mail\" WHERE id =$this->id";
+                $query = mysqli_query($this->connexion,$request);
+                return true;
+            }
+            else{
+                return false;
+            }
+    }
+
+    public function modify_password($password_old,$password_new,$password_confirm)
+    {
+        $this->connect();
+        $request = "SELECT password FROM utilisateurs WHERE id = $this->id";
+        $query = mysqli_query($this->connexion,$request);
+        $fetchmdp = mysqli_fetch_assoc($query);
+            if(password_verify($password_old,$fetchmdp["password"])){
+                if($password_new != NULL && $password_confirm==$password_new)
+                {
+                    $password_new = password_hash($password_new, PASSWORD_BCRYPT, array('cost' => 5));
+                    $request = "UPDATE utilisateurs SET password = \"$password_new\" WHERE id = $this->id";
+                    $query = mysqli_query($this->connexion,$request);
+                    return true;
+                }
+        }
+        else{
+                return false;
+            }
+    }
+    
+    public function desinscription()
+    {
+        $this->connect();
+        $id = $_SESSION["user"]->getid();
+        $desinscription="DELETE FROM utilisateurs WHERE id = $id";
+        $query_desinsc=mysqli_query($this->connexion,$desinscription);
+        session_unset();
+        session_destroy();
+        header ('location:../index.php');
     }
 
     //FONCTIONS GET//
 
     public function getid(){
         return $this->id;
+    }
+
+    public function getlogin(){
+        return $this->login;
     }
 
     public function getmail(){

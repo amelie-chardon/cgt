@@ -30,6 +30,7 @@ if($_SESSION['user']->isAdmin()!=true){
     </head>
 
 <body>
+<?php require("include/header.php"); ?>
 
     <main>
     
@@ -81,7 +82,7 @@ if($_SESSION['user']->isAdmin()!=true){
             </tbody>
         </table>
     </div>
-    <section class="section_wrap">
+    <section class="section_wrap m-4">
         <a href="index.php"><button class="submit btn btn-danger" type="submit">Retour</button></a>
     </section>
     </main>

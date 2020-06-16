@@ -36,10 +36,12 @@ if($_SESSION['user']->isAdmin()!=true){
 
 <body>
 
+<?php require("include/header.php"); ?>
     <main>
     
     <h1>Administration du site</h1>
         <section class="section_wrap">
+            <a href="profil.php"><button class="submit btn btn-danger" type="submit">Profil</button></a>
             <a href="utilisateurs.php"><button class="submit btn btn-danger" type="submit">Utilisateurs</button></a>
             <a href="sections.php"><button class="submit btn btn-danger" type="submit">Sections</button></a>
             <a href="../deconnexion.php"><button class="submit btn btn-danger" type="submit">Déconnexion</button></a>

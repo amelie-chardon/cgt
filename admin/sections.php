@@ -30,6 +30,7 @@ if($_SESSION['user']->isAdmin()!=true){
     </head>
 
 <body>
+<?php require("include/header.php"); ?>
 
     <main>
     
