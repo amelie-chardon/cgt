@@ -2,7 +2,9 @@
 <?php 
 require '../class/bdd.php';
 require '../class/user.php';
-require '../class/admin.php';
+require '../class/redacteur.php';
+require '../class/relecteur.php';
+
 
 session_start();
 
@@ -15,14 +17,29 @@ if(!isset($_SESSION['user'])){
     $_SESSION['user'] = new user();
 }
 
-if(!isset($_SESSION['admin'])){
-    $_SESSION['admin'] = new admin();
-}
-
-if($_SESSION['user']->isAdmin()!=true){
+if($_SESSION['user']->isRedacteur()!=true and $_SESSION['user']->isRelecteur()!=true){
     header('Location:../index.php');
 }
 
+if($_SESSION['user']->isRedacteur()==true)
+{
+    if(!isset($_SESSION['redacteur']))
+    {
+        $_SESSION['redacteur'] = new redacteur();
+    }
+}
+
+if($_SESSION['user']->isRelecteur()==true)
+{
+  if(!isset($_SESSION['redacteur']))
+  {
+      $_SESSION['redacteur'] = new redacteur();
+  }
+    if(!isset($_SESSION['relecteur']))
+    {
+        $_SESSION['relecteur'] = new relecteur();
+    }
+}
 
 ?>
 
@@ -31,17 +48,17 @@ if($_SESSION['user']->isAdmin()!=true){
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="../style.css">
-        <title>Admin - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
+        <title>Gestion - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
     </head>
 
 <body>
 
     <main>
     
-    <h1>Administration du site</h1>
+    <h1>Gestion du site</h1>
         <section class="section_wrap">
-            <a href="utilisateurs.php"><button class="submit btn btn-danger" type="submit">Utilisateurs</button></a>
-            <a href="sections.php"><button class="submit btn btn-danger" type="submit">Sections</button></a>
+            <a href="creer-article.php"><button class="submit btn btn-danger" type="submit">Créer article</button></a>
+            <a href="articles.php"><button class="submit btn btn-danger" type="submit">Gestion articles</button></a>
             <a href="../deconnexion.php"><button class="submit btn btn-danger" type="submit">Déconnexion</button></a>
         </section>
     </main>

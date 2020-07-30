@@ -62,8 +62,6 @@ if(isset($_POST["submit"]))
     }
     
 }
-
-
 ?>
 <!doctype html>
 
@@ -73,11 +71,14 @@ if(isset($_POST["submit"]))
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="../style.css">
         <title>Accueil - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
-        <script async src="preview.js"></script>
-        <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
+
+
+    
+
+
     </head>
 
 <body>
@@ -92,20 +93,17 @@ if(isset($_POST["submit"]))
 
   <div class="form-group">
     <label for="Titre de l'article">Titre de l'article</label>
-    <input type="text" class="form-control" name="titre" id="titre" placeholder="Titre de l'article" required>
+    <input type="text" class="form-control" name="titre" placeholder="Titre de l'article" required>
   </div>
   <div class="form-group">
     <label for="Sous titre de l'article">Sous Titre de l'article</label>
-    <input type="text" class="form-control" name="stitre" id="stitre" placeholder="Sous titre de l'article" required>
+    <input type="text" class="form-control" name="stitre" placeholder="Sous titre de l'article" required>
   </div>
-  <div class="form-group">
-    <label for="Insérer une image">Insérer une image</label>
-    <input type="text" class="form-control" name="img" id="img" placeholder="Insérer une image" required>
-  </div>
-  <div class="form-group">
-    <label for="Preview">Preview</label>
-    <button type="button" class="form-control" name="prv" id="prv" required>Prévisualiser</button>
-  </div>
+
+<input id="browse" type="file" onchange="previewFiles()" multiple>
+<div id="preview"></div>
+
+
   <div class="form-group">
     <label for="Choix du thème">Choix du thème</label>
     <select class="form-control" name="theme">
@@ -117,7 +115,7 @@ if(isset($_POST["submit"]))
   
   <div class="form-group">
     <label for="Choix du thème">Choix de la section</label>
-    <select class="form-control" name="section" id="section">
+    <select class="form-control" name="section">
     <?php
     
     foreach ($_SESSION['bdd']->getSection() as $r)
@@ -128,7 +126,7 @@ if(isset($_POST["submit"]))
 
     <div class="form-group">
     <label for="Redigez votre article">Redigez votre article</label>
-    <textarea class="form-control" name="article" id="article" rows="10" cols="160" required></textarea>
+    <textarea class="form-control" name="article" rows="10" cols="160" required></textarea>
   </div>
     </select>
   </div>
@@ -139,14 +137,15 @@ if(isset($_POST["submit"]))
     </section>
     
 
-    <div id="previ"></div>
+
     </main>
+
+
+
     
-
-
-
-   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
