@@ -62,8 +62,6 @@ if(isset($_POST["submit"]))
     }
     
 }
-
-
 ?>
 <!doctype html>
 
@@ -73,7 +71,14 @@ if(isset($_POST["submit"]))
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="../style.css">
         <title>Accueil - Syndicats CGT Territoriaux & ICT - Ville de Marseille & CCAS</title>
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         
+
+
+    
+
+
     </head>
 
 <body>
@@ -94,10 +99,11 @@ if(isset($_POST["submit"]))
     <label for="Sous titre de l'article">Sous Titre de l'article</label>
     <input type="text" class="form-control" name="stitre" placeholder="Sous titre de l'article" required>
   </div>
-  <div class="form-group">
-    <label for="Insérer une image">Insérer une image</label>
-    <input type="text" class="form-control" name="img" placeholder="Insérer une image" required>
-  </div>
+
+<input id="browse" type="file" onchange="previewFiles()" multiple>
+<div id="preview"></div>
+
+
   <div class="form-group">
     <label for="Choix du thème">Choix du thème</label>
     <select class="form-control" name="theme">
@@ -136,9 +142,10 @@ if(isset($_POST["submit"]))
 
 
 
-
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
