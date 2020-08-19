@@ -22,7 +22,7 @@ class redacteur extends user
         
         var_dump($_FILES['files']);
 
-        //header("Refresh:2; url=creer-article.php");
+        header("Refresh:15; url=creer-article.php");
 
         
 

@@ -15,7 +15,7 @@ class relecteur extends redacteur
         
         echo "Votre article a bien été enregistrer il est désormais en attente de publication !!";
 
-        //header("Refresh:2; url=creer-article.php");
+        header("Refresh:15; url=creer-article.php");
         
 
         return $result;

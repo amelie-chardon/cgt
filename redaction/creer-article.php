@@ -74,9 +74,9 @@ if(isset($_POST["submit"]))
     
               $fileNameNew = uniqid('',true).".".$fileActualExt;
     
-              $fileDestination = '/img'.$fileNameNew;
+              $fileDestination = '../img/'.$fileNameNew;
               move_uploaded_file($fileTmpName,$fileDestination);
-              header("Location:creer-article.php?uploadsuccess");
+              //header("Location:creer-article.php?uploadsuccess");
     
     
     
