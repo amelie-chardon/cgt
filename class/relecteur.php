@@ -7,13 +7,15 @@ class relecteur extends redacteur
 {   
     //Fonction permettant d'écrire un article et l'insérer en base de données avant validation
     public function writeArticles(){
+        
+
         $this->connect();
         $this->execute("SET NAMES UTF8");
-        $result=$this->execute("INSERT INTO `articles`(`id`, `id_utilisateurs`, `id_sections`, `titre`, `sous_titre`, `date`, `contenu`, `statut`,`img`) VALUES (NULL, '".$_SESSION['user']->getid()."','1', '".$_POST['titre']."', '".$_POST['stitre']."',NOW(),'".$_POST['article']."', '0','".$_POST['img']."')");
+        $result=$this->execute("INSERT INTO `articles` (`id`, `id_utilisateurs`, `id_sections`, `titre`, `sous_titre`, `date`, `contenu`, `statut`, `img`, `img2`, `img3`, `img4`) VALUES (NULL, '".$_SESSION['user']->getid()."','1', '".$_POST['titre']."', '".$_POST['stitre']."',NOW(),'".$_POST['article']."', '0','img/".$_FILES['files']['name'][0]."','img/".$_FILES['files']['name'][1]."','img/".$_FILES['files']['name'][2]."','img/".$_FILES['files']['name'][3]."');");
         
         echo "Votre article a bien été enregistrer il est désormais en attente de publication !!";
 
-        header("Refresh:2; url=creer-article.php");
+        //header("Refresh:2; url=creer-article.php");
         
 
         return $result;

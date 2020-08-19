@@ -49,6 +49,52 @@ if($_SESSION['user']->isRelecteur()==true)
 
 if(isset($_POST["submit"]))
 {
+  $countfiles = count ($_FILES['files']['name']);
+
+  $file = $_FILES['files'];
+
+  // Boucle tous les fichiers
+  for($i = 0; $i <$countfiles; $i++) {
+
+        $fileName = $_FILES['files']['name'][$i];
+        $fileTmpName = $_FILES['files']['tmp_name'][$i];
+        $fileSize = $_FILES['files']['size'][$i];
+        $fileError = $_FILES['files']['error'][$i];
+        $fileType = $_FILES['files']['type'][$i];
+    
+        $fileExt = explode('.',$fileName);
+        
+        $fileActualExt = strtolower(end($fileExt));
+    
+        $allowed = array('jpg','jpeg','png','pdf');
+    
+        if(in_array($fileActualExt,$allowed)){
+            if($fileError == 0){
+                if($fileSize < 1000000){
+    
+              $fileNameNew = uniqid('',true).".".$fileActualExt;
+    
+              $fileDestination = '/img'.$fileNameNew;
+              move_uploaded_file($fileTmpName,$fileDestination);
+              header("Location:creer-article.php?uploadsuccess");
+    
+    
+    
+            }else{
+              echo "votre fichier est trop gros";
+            }
+    
+          }else{
+            echo "votre fichier n'est pas au bon format";
+    
+          }
+    
+        }
+        else{
+          echo "votre fichier n'est ";
+        }
+      }
+
     if(isset($_SESSION['relecteur']))
     {
         $_SESSION['relecteur']->writeArticles();
@@ -60,8 +106,9 @@ if(isset($_POST["submit"]))
         $_SESSION['redacteur']->writeArticles();
 
     }
-    
+   
 }
+
 ?>
 <!doctype html>
 
@@ -89,7 +136,7 @@ if(isset($_POST["submit"]))
     
 
     <section class="container-fluid">
-<form method="POST" action="">
+<form method="POST" action="" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="Titre de l'article">Titre de l'article</label>
@@ -100,8 +147,10 @@ if(isset($_POST["submit"]))
     <input type="text" class="form-control" name="stitre" placeholder="Sous titre de l'article" required>
   </div>
 
-<input id="browse" type="file" onchange="previewFiles()" multiple>
+
+<input id="browse" type="file" name="files[]" onchange="previewFiles()" multiple="multiple">
 <div id="preview"></div>
+
 
 
   <div class="form-group">
@@ -117,6 +166,8 @@ if(isset($_POST["submit"]))
     <label for="Choix du thème">Choix de la section</label>
     <select class="form-control" name="section">
     <?php
+    
+   
     
     foreach ($_SESSION['bdd']->getSection() as $r)
     {
