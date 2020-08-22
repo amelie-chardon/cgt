@@ -22,6 +22,8 @@ $bdd = $_SESSION['bdd'];
 $article1=$bdd->lastArticle(0);
 $article2=$bdd->lastArticle(1);
 $article3=$bdd->lastArticle(2);
+
+
 ?>
 
 <html>
